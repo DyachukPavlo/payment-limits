@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/payment_limits_db
+    username: pl
+    password: Password1
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: update
+  application:
+    name: payment-limits-service
+  docker:
+    compose:
+      enabled: true
+      file: ./docker/docker-compose.yaml
+
+management:
+  server:
+    port: 8081
+  endpoints:
+    web:
+      path-mapping:
+        health: /healthcheck
+      base-path: /
+
+server:
+  port: 8080
