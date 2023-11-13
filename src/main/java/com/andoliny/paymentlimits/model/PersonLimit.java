@@ -24,7 +24,7 @@ public class PersonLimit {
 
     @ManyToOne(cascade = CascadeType.DETACH)
     @JoinColumn(name = "limit_id", referencedColumnName = "id")
-    private Limit limitId;
+    private CurrencyLimit limitId;
 
     private BigDecimal startAmount;
 

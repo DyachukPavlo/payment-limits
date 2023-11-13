@@ -12,14 +12,15 @@ import java.util.Date;
 @Getter
 @Setter
 @RequiredArgsConstructor
-@Table(name = "limits", uniqueConstraints = { @UniqueConstraint(name = "UniqueLimitTypePerCountry",
+@Table(name = "currency_limit", uniqueConstraints = { @UniqueConstraint(name = "UniqueLimitTypePerCountry",
         columnNames = { "period_type", "currency" }) })
-public class Limit {
+public class CurrencyLimit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String period_type;
+    @Enumerated(EnumType.STRING)
+    private PeriodType period_type;
 
     private BigDecimal amount;
 
